@@ -14,6 +14,16 @@ window.addEventListener('load', () => {
             cost: parseInt(fc.querySelector('.price').innerText),
             adds: parseInt(fc.querySelector('.adds').innerText),
             count: parseInt(fc.querySelector('.count').innerText.slice(1, -1)),
+            button: fc.querySelector('button'),
+        }
+
+        factory.button.onclick = () => {
+            if (score >= factory.cost) {
+                score -= factory.cost;
+                factory.count++;
+                scoreBlock.textContent = score;
+                fc.querySelector('.count').innerText = `(${factory.count})`;
+            }
         }
 
         ownedFactory.push(factory);
