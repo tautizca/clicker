@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
         let factory = {
             title: fc.querySelector('.title').innerText,
             cost: parseInt(fc.querySelector('.price').innerText),
-            adds: parseInt(fc.querySelector('.adds').innerText),
+            isAdding: parseInt(fc.querySelector('.adds').innerText),
             count: parseInt(fc.querySelector('.count').innerText.slice(1, -1)),
             button: fc.querySelector('button'),
         }
@@ -29,5 +29,12 @@ window.addEventListener('load', () => {
         ownedFactory.push(factory);
     });
 
-    console.debug(ownedFactory);
+
+    setInterval(() => {
+        console.log(score);
+        score += ownedFactory
+            .map(fc => fc.count * fc.isAdding)
+            .reduce((partialSum, number) => partialSum + number, 0);
+        scoreBlock.innerText = score;
+    }, 1000);
 });
