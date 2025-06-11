@@ -7,4 +7,14 @@ window.addEventListener('load', () => {
         scoreBlock.textContent = score;
     });
 
+    document.querySelectorAll('.factory').forEach(fc => {
+        let factory = {
+            title: fc.querySelector('.title').innerText,
+            cost: parseInt(fc.querySelector('.price').innerText),
+            adds: parseInt(fc.querySelector('.adds').innerText)
+        }
+
+        console.debug(factory);
+    });
+
 });
