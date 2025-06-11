@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
     let scoreBlock = document.querySelector('.main-game .score');
     let score = 0;
+    let ownedFactory = [];
 
     document.querySelector('.main-game .click-zone').addEventListener('click', () => {
         score+=10;
@@ -11,10 +12,12 @@ window.addEventListener('load', () => {
         let factory = {
             title: fc.querySelector('.title').innerText,
             cost: parseInt(fc.querySelector('.price').innerText),
-            adds: parseInt(fc.querySelector('.adds').innerText)
+            adds: parseInt(fc.querySelector('.adds').innerText),
+            count: parseInt(fc.querySelector('.count').innerText.slice(1, -1)),
         }
 
-        console.debug(factory);
+        ownedFactory.push(factory);
     });
 
+    console.debug(ownedFactory);
 });
